@@ -1,24 +1,29 @@
 // Import the React and ReactDOM libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CommentDetail from './commentDetail';
+import ApprovalCard from './approvalCard';
 
-
-
-function getButtonText() {
-    return 'Click on me!';
-}
 // Creat a react component
 const App =  () => {
-    //const buttonText = ['Click Me!', 2];
-    const buttonText = {text: 'Click Me!'};
-    const style = {backgroundColor: 'blue', color: 'white'};
     return (
-        <div>
-            <label htmlFor='name' className='label'>Enter name:</label>
-            <input id='name' type='text'/>
-            <button style={{backgroundColor: 'blue', color: 'white'}}>
-                {buttonText.text}
-            </button>
+        <div className="ui container comments">
+            <ApprovalCard>Are you sure you want to do this?</ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail author="Sam" time="Tpday at 4:45PM" comment="Great job."/>
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail author="Alex" time="Tpday at 2:00AM" comment="Very useful"/>
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail author="Jane" time="Tpday at 3:23AM" comment="Nice work"/>
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail author="Jim" time="Tpday at 4:45PM" comment="sounds great"/>
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail author="Flex" time="Tpday at 4:45PM" comment="Awesome"/>
+            </ApprovalCard>
         </div>
     );
 }
