@@ -1,0 +1,50 @@
+import React from 'react';
+import { Router, Route, Link, Switch } from 'react-router-dom';
+import StreamCreate from './streams/StreamCreate';
+import StreamDelete from './streams/StreamDelete';
+import StreamEdit from './streams/StreamEdit';
+import StreamList from './streams/StreamList';
+import StreamShow from './streams/StreamShow';
+import Header from './Header';
+import history from '../history';
+
+const App = () => {
+    return (
+        <div className="ui container">
+            <Router history={history}>
+                <Header />
+                <Switch>
+                    <Route path="/" exact component={StreamList} />
+                    <Route path="/streams/new" component={StreamCreate} />
+                    <Route path="/streams/edit/:id" component={StreamEdit} />
+                    <Route path="/streams/delete/:id" component={StreamDelete} />
+                    <Route path="/streams/:id" component={StreamShow} />
+                </Switch>
+            </Router>
+        </div>
+    );
+};
+
+const PageOne = () => {
+    return (
+        <div>PageOne
+            {/* BAD!!
+            <a href="/pagetwo">Navigate to page two</a> */}
+            <Link to="/pagetwo">Navigate to page two</Link>
+        </div>
+        
+    )
+}
+
+const PageTwo = () => {
+    return (
+        <div>PageTwo
+            {/* BAD!!
+            <a href="/">Navigate to page one</a> */}
+            <Link to="/">Navigate to page one</Link>
+        </div>
+        
+    );
+}
+
+export default App;
